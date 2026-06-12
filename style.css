@@ -49,15 +49,12 @@ body {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    padding: 1.5px; /* yanada ingichka */
-    background: linear-gradient(
-        180deg,
-        rgba(210, 214, 220, 0.55),
-        rgba(160, 168, 178, 0.35)
-    );
+    padding: 3px;
+    background: linear-gradient(135deg, #f2f4f7, #aeb6c2, #182230);
     margin-bottom: 30px;
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+    animation: pulse-ring 3s infinite ease-in-out;
 }
 
 .profile img {
@@ -65,15 +62,20 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid #121c26;
+    z-index: 2;
+    position: relative;
 }
 
 /* ================= NAME ================= */
 .hero h1 {
-    font-size: 44px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: #f2f4f7;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    background: linear-gradient(to right, #ffffff, #b9c2ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .hero h1 span {
@@ -91,13 +93,30 @@ body {
 }
 
 /* ================= SECONDARY SUBTITLE ================= */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-top: 15px;
+    max-width: 85%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .subtitle2 {
-    margin-top: 10px;
-    font-size: 24px;
-    max-width: 80%;
-    letter-spacing: 3.5px;
+    font-size: 22px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #aeb6c2;
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-weight: 300;
 }
 
 /* ================= DIPLOMATIC DIVIDER ================= */
@@ -118,34 +137,35 @@ body {
 .socials {
     margin-top: 34px;
     display: flex;
-    gap: 18px;
+    gap: 20px;
 }
 
 .socials a {
     width: 65px;
     height: 65px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #dde3ec;
     font-size: 28px;
     text-decoration: none;
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 
-        background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 /* ================= HOVER ================= */
 .socials a:hover {
-    background: rgba(255, 255, 255, 0.14);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
     color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 992px) {
@@ -205,5 +225,31 @@ body {
     .hero::after {
         width: 160px;
         margin-top: 36px;
+    }
+}
+
+/* ================= ANIMATIONS ================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.15);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
