@@ -51,7 +51,7 @@ body {
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(135deg, #f2f4f7, #aeb6c2, #182230);
-    margin-bottom: 30px;
+    margin: 0 auto 30px auto;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.1);
     position: relative;
     animation: pulse-ring 3s infinite ease-in-out;
@@ -65,6 +65,8 @@ body {
     border: 2px solid #121c26;
     z-index: 2;
     position: relative;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ================= NAME ================= */
@@ -181,7 +183,7 @@ body {
     .profile {
         width: 140px;
         height: 140px;
-        margin-bottom: 20px;
+        margin: 0 auto 20px auto;
     }
 
     .hero h1 {
